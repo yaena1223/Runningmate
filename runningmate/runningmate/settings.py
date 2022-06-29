@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'accounts',
 
 ]
 
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'runningmate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'runningmate','templates'), os.path.join(BASE_DIR, 'templates', 'account')],
+        'DIRS': [os.path.join(BASE_DIR,'runningmate','templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,7 +144,7 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/mainpage'
 LOGOUT_REDIRECT_URL = '/'
-
+ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.SignupForm'
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
